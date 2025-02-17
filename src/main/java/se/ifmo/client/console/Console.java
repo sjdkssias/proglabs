@@ -1,5 +1,8 @@
 package se.ifmo.client.console;
 
-public class Console {
+
+import java.io.*;
+
+public final class Console {
 
 }

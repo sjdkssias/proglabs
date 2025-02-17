@@ -29,4 +29,6 @@ public abstract class Command {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    protected abstract void execute();
 }

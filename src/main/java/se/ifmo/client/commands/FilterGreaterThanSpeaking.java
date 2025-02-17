@@ -1,7 +1,7 @@
 package se.ifmo.client.commands;
 
-public class PrintDescending extends Command{
-    public PrintDescending(String name, String description) {
+public class FilterGreaterThanSpeaking extends Command{
+    public FilterGreaterThanSpeaking(String name, String description) {
         super(name, description);
     }
 

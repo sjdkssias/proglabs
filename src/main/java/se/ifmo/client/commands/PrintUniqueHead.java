@@ -1,12 +1,15 @@
 package se.ifmo.client.commands;
 
+import se.ifmo.client.chat.Request;
+import se.ifmo.client.chat.Response;
+
 public class PrintUniqueHead extends Command {
-    public PrintUniqueHead(String name, String description) {
-        super(name, description);
+    public PrintUniqueHead() {
+        super("print unique head", "print unique dragon's head");
     }
 
     @Override
-    protected void execute() {
-
+    public Response execute(Request request) {
+        return null;
     }
 }

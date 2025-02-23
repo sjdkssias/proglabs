@@ -1,4 +1,11 @@
 package se.ifmo.client.chat;
 
-public class Request {
+import se.ifmo.client.console.Console;
+import se.ifmo.server.models.classes.Dragon;
+
+import java.util.List;
+
+public record Request(String command, List<String> args, List<Dragon> dragons, Console console) {
+
+    
 }

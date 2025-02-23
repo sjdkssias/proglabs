@@ -1,14 +1,30 @@
 package se.ifmo;
 
-import se.ifmo.server.models.classes.Dragon;
+import se.ifmo.client.chat.Response;
+import se.ifmo.client.chat.Router;
+import se.ifmo.client.commands.AllCommands;
+import se.ifmo.client.console.Console;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static List<Dragon> movies = new ArrayList<Dragon>();
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Console console = new Console();
+        System.out.println("Введите команду (напишите 'help' для списка команд):");
+
+        while (true) {
+            System.out.print("> ");
+            String input = scanner.nextLine().trim();
+            String[] parts = input.split("\\s+");
+            String commandName = parts[0];
+            List<String> arguments = List.of(parts).subList(1, parts.length);
+
+            Response response = Router.routeCommand(commandName, arguments, console);
+            System.out.println(response.getMessage());
+        }
     }
 }

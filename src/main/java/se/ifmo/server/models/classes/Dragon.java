@@ -7,15 +7,12 @@ import se.ifmo.server.models.enums.DragonCharacter;
 import lombok.*;
 import se.ifmo.server.models.interfaces.Validatable;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString
 @EqualsAndHashCode
 @JacksonXmlRootElement(localName = "dragon")
 public class Dragon implements Comparable<Dragon>, Validatable {
     private static int idCounter = 1;
-    @NonNull
     @JsonIgnore
     private long id;
     @NonNull

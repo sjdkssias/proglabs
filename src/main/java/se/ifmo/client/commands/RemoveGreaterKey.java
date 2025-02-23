@@ -1,12 +1,15 @@
 package se.ifmo.client.commands;
 
+import se.ifmo.client.chat.Request;
+import se.ifmo.client.chat.Response;
+
 public class RemoveGreaterKey extends Command{
-    public RemoveGreaterKey(String name, String description) {
-        super(name, description);
+    public RemoveGreaterKey() {
+        super("remove greater key", "remove all elements whose key greater than your");
     }
 
     @Override
-    protected void execute() {
-
+    public Response execute(Request request) {
+        return null;
     }
 }

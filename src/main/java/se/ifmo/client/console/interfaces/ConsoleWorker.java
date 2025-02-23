@@ -1,9 +1,7 @@
 package se.ifmo.client.console.interfaces;
 
-public interface ConsoleWorker extends IOWorker<String>{
-    @Override
-    String read();
+public interface ConsoleWorker<T> extends AutoCloseable{
+    T read();  // Метод для чтения
 
-    @Override
-    void write(String value);
+    void write(T value);
 }

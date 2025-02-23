@@ -1,5 +1,7 @@
 package se.ifmo.server;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 import se.ifmo.server.file.handlers.XmlHandler;
 import se.ifmo.server.models.classes.Dragon;
@@ -15,7 +17,7 @@ public class CollectionManager {
         load();
     }
 
-    public static synchronized CollectionManager getInstance() {
+    public static CollectionManager getInstance() {
         if (instance == null) {
             instance = new CollectionManager();
         }
@@ -47,5 +49,12 @@ public class CollectionManager {
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    public List<Integer> getIds(){
+        return new ArrayList<>(dragons.keySet());
+    }
+    public TreeMap<Integer, Dragon> treeMap(){
+        return dragons;
     }
 }

@@ -1,21 +1,18 @@
 package se.ifmo.client.commands;
 
 
-import se.ifmo.client.console.interfaces.ConsoleWorker;
-import se.ifmo.server.CollectionManager;
+import se.ifmo.client.chat.Request;
+import se.ifmo.client.chat.Response;
+
 
 public class Insert extends Command{
-    private final ConsoleWorker console;
-    private final CollectionManager collectionManager;
 
-    public Insert(ConsoleWorker console, CollectionManager collectionManager) {
-        super("add {element}", "добавить новый элемент в коллекцию");
-        this.console = console;
-        this.collectionManager = collectionManager;
+    public Insert() {
+        super("add {element}", "add element with your key");
     }
 
     @Override
-    protected void execute() {
-
+    public Response execute(Request request) {
+        return null;
     }
 }

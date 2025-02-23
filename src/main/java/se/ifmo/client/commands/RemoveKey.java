@@ -1,12 +1,15 @@
 package se.ifmo.client.commands;
 
+import se.ifmo.client.chat.Request;
+import se.ifmo.client.chat.Response;
+
 public class RemoveKey extends Command{
-    public RemoveKey(String name, String description) {
-        super(name, description);
+    public RemoveKey() {
+        super("remove key", "remove all elements who have the given key");
     }
 
     @Override
-    protected void execute() {
-
+    public Response execute(Request request) {
+        return null;
     }
 }

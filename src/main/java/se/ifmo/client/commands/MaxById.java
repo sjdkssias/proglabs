@@ -1,20 +1,16 @@
 package se.ifmo.client.commands;
 
-import se.ifmo.client.console.interfaces.ConsoleWorker;
-import se.ifmo.server.CollectionManager;
+import se.ifmo.client.chat.Request;
+import se.ifmo.client.chat.Response;
 
 public class MaxById extends Command{
-    private final ConsoleWorker console;
-    private final CollectionManager collectionManager;
 
-    public MaxById(ConsoleWorker console, CollectionManager collectionManager) {
-        super("max {element} by id", "вывести любой объект из коллекции, значение поля id которого является максимальным");
-        this.console = console;
-        this.collectionManager = collectionManager;
+    public MaxById() {
+        super("max {element} by id", "show any object from the collection whose id field value is the maximum");
     }
 
     @Override
-    protected void execute() {
-
+    public Response execute(Request request) {
+        return null;
     }
 }

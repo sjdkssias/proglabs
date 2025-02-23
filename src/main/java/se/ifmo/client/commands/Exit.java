@@ -2,6 +2,7 @@ package se.ifmo.client.commands;
 
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.client.commands.util.HistoryManager;
 
 public class Exit extends Command{
     public Exit() {

@@ -2,6 +2,7 @@ package se.ifmo.client.commands;
 
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.client.commands.util.HistoryManager;
 import se.ifmo.server.CollectionManager;
 import se.ifmo.server.models.id.IdGenerator;
 
@@ -12,6 +13,7 @@ public class Add extends Command{
 
     @Override
     public Response execute(Request request) {
+
         if (request.dragons()==null || request.dragons().isEmpty()){
             return new Response("No dragons to add");
         }

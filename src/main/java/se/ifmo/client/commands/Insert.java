@@ -1,6 +1,7 @@
 package se.ifmo.client.commands;
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.client.commands.util.HistoryManager;
 import se.ifmo.client.console.Console;
 import se.ifmo.server.CollectionManager;
 
@@ -8,11 +9,12 @@ import se.ifmo.server.CollectionManager;
 public class Insert extends Command{
 
     public Insert() {
-        super("add {element}", "add element with your key");
+        super("insert", "add element with your key");
     }
 
     @Override
     public Response execute(Request request) {
+        HistoryManager.getInstance().addCommand(getName());
         if (request.dragons() == null || request.dragons().isEmpty()) {
             return new Response("No dragons to add");
         }

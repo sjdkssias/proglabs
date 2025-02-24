@@ -12,7 +12,6 @@ import se.ifmo.server.models.interfaces.Validatable;
 @EqualsAndHashCode
 @JacksonXmlRootElement(localName = "dragon")
 public class Dragon implements Comparable<Dragon>, Validatable {
-    private static int idCounter = 1;
     @JsonIgnore
     private long id;
     @NonNull

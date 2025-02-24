@@ -8,9 +8,9 @@ import se.ifmo.server.models.interfaces.Validatable;
 @RequiredArgsConstructor
 public class Coordinates implements Validatable {
     @NonNull
-    private Double x;
+    private Float x;
     @NonNull
-    private Double y; //Поле не может быть null
+    private Long y; //Поле не может быть null
 
     @Override
     public boolean validate() {

@@ -1,17 +1,19 @@
 package se.ifmo;
 
+
+import se.ifmo.client.chat.Handler;
 import se.ifmo.client.chat.Response;
 import se.ifmo.client.chat.Router;
-import se.ifmo.client.commands.AllCommands;
 import se.ifmo.client.console.Console;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Console console = new Console();
         System.out.println("Введите команду (напишите 'help' для списка команд):");

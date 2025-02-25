@@ -12,6 +12,7 @@ public class Add extends Command{
 
     @Override
     public Response execute(Request request) {
+        System.out.println(request);
 
         if (request.dragons()==null || request.dragons().isEmpty()){
             return new Response("No dragons to add");

@@ -5,7 +5,7 @@ import se.ifmo.server.models.interfaces.Validatable;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Coordinates implements Validatable {
     @NonNull
     private Float x;

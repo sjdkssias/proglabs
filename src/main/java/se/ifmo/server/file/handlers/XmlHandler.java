@@ -16,7 +16,7 @@ public class XmlHandler implements IOHandler<TreeMap<Integer, Dragon>>{
             return xmlMapper.readValue(file, xmlMapper.getTypeFactory().constructMapType(TreeMap.class, Integer.class, Dragon.class));
         } catch (IOException e) {
             System.err.println("Ошибка при чтении XML-файла: " + e.getMessage());
-            return new TreeMap<>(); // Возвращаем пустую коллекцию в случае ошибки
+            return new TreeMap<>();
         }
     }
 

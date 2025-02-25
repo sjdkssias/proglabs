@@ -5,6 +5,8 @@ import se.ifmo.client.commands.util.HistoryManager;
 import se.ifmo.client.console.Console;
 import se.ifmo.server.CollectionManager;
 
+import java.io.IOException;
+
 
 public class Insert extends Command{
 
@@ -13,7 +15,7 @@ public class Insert extends Command{
     }
 
     @Override
-    public Response execute(Request request) {
+    public Response execute(Request request) throws IOException {
         HistoryManager.getInstance().addCommand(getName());
         if (request.dragons() == null || request.dragons().isEmpty()) {
             return new Response("No dragons to add");

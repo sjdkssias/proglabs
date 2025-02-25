@@ -54,6 +54,7 @@ public class CollectionManager {
     public List<Integer> getIds(){
         return new ArrayList<>(dragons.keySet());
     }
+
     public TreeMap<Integer, Dragon> treeMap(){
         return dragons;
     }

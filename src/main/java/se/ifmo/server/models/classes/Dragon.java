@@ -43,3 +43,4 @@ public class Dragon implements Comparable<Dragon>, Validatable {
         return true;
     }
 }
+

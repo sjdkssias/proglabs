@@ -6,7 +6,7 @@ import se.ifmo.client.commands.util.HistoryManager;
 
 public class FilterGreaterThanSpeaking extends Command{
     public FilterGreaterThanSpeaking() {
-        super("filter greater", "display elements whose speaking field value is greater than the specified one");
+        super("filter_greater", "display elements whose speaking field value is greater than the specified one");
     }
 
     @Override

@@ -6,7 +6,7 @@ import se.ifmo.server.CollectionManager;
 public class MaxById extends Command{
 
     public MaxById() {
-        super("max by id", "show any object from the collection whose id field value is the maximum");
+        super("max_by_id", "show any object from the collection whose id field value is the maximum");
     }
 
     @Override

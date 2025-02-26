@@ -5,7 +5,7 @@ import se.ifmo.client.chat.Response;
 
 public class RemoveLowerKey extends Command{
     public RemoveLowerKey() {
-        super("remove lower key", "remove from the collection all elements whose key is less than the given one");
+        super("remove_lower_key", "remove from the collection all elements whose key is less than the given one");
     }
 
     @Override

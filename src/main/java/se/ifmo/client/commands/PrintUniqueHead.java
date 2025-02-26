@@ -5,7 +5,7 @@ import se.ifmo.client.chat.Response;
 
 public class PrintUniqueHead extends Command {
     public PrintUniqueHead() {
-        super("print unique head", "print unique dragon's head");
+        super("print_unique_head", "print unique dragon's head");
     }
 
     @Override

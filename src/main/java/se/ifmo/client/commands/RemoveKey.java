@@ -6,7 +6,7 @@ import se.ifmo.server.CollectionManager;
 
 public class RemoveKey extends Command{
     public RemoveKey() {
-        super("remove key", "remove all elements who have the given key");
+        super("remove_key", "remove all elements who have the given key");
     }
 
     @Override

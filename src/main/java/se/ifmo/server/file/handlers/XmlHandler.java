@@ -17,7 +17,7 @@ public class XmlHandler implements IOHandler<TreeMap<Integer, Dragon>>{
 
     @Override
     public void write(TreeMap<Integer, Dragon> value) throws IOException {
-        xmlMapper.writeValue(file, value);
+        xmlMapper.writerWithDefaultPrettyPrinter().writeValue(file, value);
     }
 
     @Override

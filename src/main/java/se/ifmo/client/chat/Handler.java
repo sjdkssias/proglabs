@@ -10,7 +10,6 @@ public class Handler {
 
     public static Response handleCommand(Command command, Request request) throws IOException {
         HistoryManager.getInstance().addCommand(command.getName());
-        Response response = command.execute(request);// Выводим результат сразу
-        return response;
+        return command.execute(request);// Выводим результат сразу
     }
 }

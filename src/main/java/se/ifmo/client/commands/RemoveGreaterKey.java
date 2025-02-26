@@ -11,7 +11,7 @@ import java.util.TreeMap;
 public class RemoveGreaterKey extends Command{
 
     public RemoveGreaterKey() {
-        super("remove greater key", "remove all elements whose key greater than your");
+        super("remove_greater_key", "remove all elements whose key greater than your");
     }
 
     @Override

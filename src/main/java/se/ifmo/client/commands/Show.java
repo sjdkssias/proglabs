@@ -3,10 +3,10 @@ import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 import se.ifmo.server.CollectionManager;
 
-public class Info extends Command{
+public class Show extends Command{
 
-    public Info() {
-        super("info", "show info about collection");
+    public Show() {
+        super("show", "show info about collection");
     }
 
     @Override

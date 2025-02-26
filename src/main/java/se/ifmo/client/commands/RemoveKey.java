@@ -2,6 +2,7 @@ package se.ifmo.client.commands;
 
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.server.CollectionManager;
 
 public class RemoveKey extends Command{
     public RemoveKey() {
@@ -10,6 +11,11 @@ public class RemoveKey extends Command{
 
     @Override
     public Response execute(Request request) {
-        return null;
+        if (request.dragons()==null || request.dragons().isEmpty()){
+            return new Response("null request");
+        }
+        int yourId = (int)request.dragons().get(0).getId();
+        CollectionManager.getInstance().removeById((int)request.dragons().get(0).getId());
+        return new Response("elements with key " + yourId+ " were removed");
     }
 }

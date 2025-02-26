@@ -17,7 +17,7 @@ public class AllCommands {
         new RemoveGreaterKey(),
         new PrintUniqueHead(),
         new RemoveLowerKey(),
-        new Info(),
+        new Show(),
         new ExecuteScript()
     );
 

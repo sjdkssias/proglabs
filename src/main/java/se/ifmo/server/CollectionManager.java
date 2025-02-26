@@ -1,12 +1,9 @@
 package se.ifmo.server;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
+
 import se.ifmo.server.file.handlers.XmlHandler;
 import se.ifmo.server.models.classes.Dragon;
-
-
 public class CollectionManager {
     private static CollectionManager instance;
 
@@ -24,6 +21,14 @@ public class CollectionManager {
         return instance;
     }
 
+    public int generateId(){
+        Random random = new Random();
+        int newId;
+        do {
+            newId = random.nextInt(Integer.MAX_VALUE);
+        } while (dragons.containsKey(newId)); // Генерируем, пока не получим уникальный id
+        return newId;
+    }
 
     public void load(){
         try (XmlHandler xmlHandler = new XmlHandler()) {
@@ -58,4 +63,27 @@ public class CollectionManager {
     public TreeMap<Integer, Dragon> treeMap(){
         return dragons;
     }
+
+    public boolean containsId(int id) {
+        return dragons.containsKey(id);
+    }
+
+    public void removeById(int id){
+        dragons.remove(id);
+    }
+
+    public void add(Dragon dragon){
+        int k = generateId();
+        dragons.put(k, dragon);
+        dragon.setId(k);
+    }
+
+    public List<Dragon> getMaxByKey() {
+        if (dragons.isEmpty()) {
+            return Collections.emptyList();
+        }
+        int maxKey = dragons.lastKey();
+        return List.of(dragons.get(maxKey));
+    }
+
 }

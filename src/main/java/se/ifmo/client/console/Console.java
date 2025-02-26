@@ -8,11 +8,11 @@ import java.io.*;
 
 public final class Console implements ConsoleWorker<String> {
     private final BufferedReader reader;
-    private final FileWriter writer;
+    private final BufferedWriter writer;
 
-    public Console() throws IOException {
+    public Console() {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
-        this.writer = new FileWriter(new File("result.xml"));
+        this.writer = new BufferedWriter(new OutputStreamWriter(System.out));
     }
 
     @Override
@@ -28,6 +28,7 @@ public final class Console implements ConsoleWorker<String> {
     public void write(String value) {
         try {
             writer.write(value);
+            writer.newLine();
             writer.flush();
         } catch (IOException e){
 

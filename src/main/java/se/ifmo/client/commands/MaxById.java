@@ -1,6 +1,7 @@
 package se.ifmo.client.commands;
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.server.CollectionManager;
 
 public class MaxById extends Command{
 
@@ -10,6 +11,8 @@ public class MaxById extends Command{
 
     @Override
     public Response execute(Request request) {
-        return null;
+
+        CollectionManager.getInstance().getMaxByKey();
+        return new Response("Dragons with max id");
     }
 }

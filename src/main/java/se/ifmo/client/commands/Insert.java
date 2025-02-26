@@ -11,12 +11,11 @@ import java.io.IOException;
 public class Insert extends Command{
 
     public Insert() {
-        super("insert", "add element with your key");
+        super("insert", "add element with your key", 1);
     }
 
     @Override
     public Response execute(Request request) throws IOException {
-        HistoryManager.getInstance().addCommand(getName());
         if (request.dragons() == null || request.dragons().isEmpty()) {
             return new Response("No dragons to add");
         }
@@ -31,7 +30,7 @@ public class Insert extends Command{
         } catch (NumberFormatException e) {
             return new Response("Invalid ID format. Please enter a valid integer.");
         }
-        if (CollectionManager.getInstance().treeMap().containsKey(id)) {
+        if (CollectionManager.getInstance().containsId(id)) {
             return new Response("Dragon with this ID already exists!");
         }
         CollectionManager.getInstance().treeMap().put(id, request.dragons().get(0));

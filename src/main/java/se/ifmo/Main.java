@@ -24,7 +24,6 @@ public class Main {
             String[] parts = input.split("\\s+");
             String commandName = parts[0];
             List<String> arguments = List.of(parts).subList(1, parts.length);
-
             Response response = Router.routeCommand(commandName, arguments, console);
             System.out.println(response.getMessage());
         }

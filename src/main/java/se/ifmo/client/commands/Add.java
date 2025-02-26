@@ -7,7 +7,7 @@ import se.ifmo.server.models.id.IdGenerator;
 
 public class Add extends Command{
     public Add() {
-        super("add", "add dragon to collection");
+        super("add", "add dragon to collection", 1);
     }
 
     @Override
@@ -17,7 +17,7 @@ public class Add extends Command{
         if (request.dragons()==null || request.dragons().isEmpty()){
             return new Response("No dragons to add");
         }
-        CollectionManager.getInstance().treeMap().put(IdGenerator.generateId(), request.dragons().get(0));
+        CollectionManager.getInstance().add(request.dragons().get(0));
         return new Response("Dragon was saved to collection");
     }
 }

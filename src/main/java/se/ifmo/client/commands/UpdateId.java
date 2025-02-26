@@ -5,7 +5,7 @@ import se.ifmo.client.chat.Response;
 
 public class UpdateId extends Command{
     public UpdateId() {
-        super("update", "update the value of a collection element whose id is equal to a given one");
+        super("update", "update the value of a collection element whose id is equal to a given one", 1);
     }
 
     @Override

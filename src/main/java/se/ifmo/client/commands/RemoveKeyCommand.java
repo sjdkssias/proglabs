@@ -6,16 +6,16 @@ import se.ifmo.server.CollectionManager;
 
 public class RemoveKeyCommand extends Command{
     public RemoveKeyCommand() {
-        super("remove_key", "remove all elements who have the given key");
+        super("remove_key", "remove all elements who have the given key", 0);
     }
 
     @Override
     public Response execute(Request request) {
-        if (request.dragons()==null || request.dragons().isEmpty()){
+        if (request.args() == null){
             return new Response("null request");
         }
-        int yourId = (int)request.dragons().get(0).getId();
-        CollectionManager.getInstance().removeById((int)request.dragons().get(0).getId());
-        return new Response("elements with key " + yourId+ " were removed");
+        int yourKey = Integer.parseInt(request.args().get(0));
+        CollectionManager.getInstance().removeById(yourKey);
+        return new Response("elements with key " + yourKey+ " were removed");
     }
 }

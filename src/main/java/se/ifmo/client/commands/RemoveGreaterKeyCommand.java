@@ -12,15 +12,17 @@ import java.util.TreeMap;
 public class RemoveGreaterKeyCommand extends Command{
 
     public RemoveGreaterKeyCommand() {
-        super("remove_greater_key", "remove all elements whose key greater than your");
+        super("remove_greater_key", "remove all elements whose key greater than your", 0);
     }
 
     @Override
     public Response execute(Request request) {
-        if (request.dragons().isEmpty() || request.args() == null) {
+        System.out.println(request);
+        if (request.args() == null) {
             return new Response("null request");
         }
-        int yourKey = (int)request.dragons().get(0).getId();
+
+        int yourKey = Integer.parseInt(request.args().get(0));
 
         TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
         List<Integer> keysToRemove = new ArrayList<>(collection.tailMap(yourKey, false).keySet());

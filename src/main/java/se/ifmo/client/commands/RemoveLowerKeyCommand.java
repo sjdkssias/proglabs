@@ -11,15 +11,15 @@ import java.util.TreeMap;
 
 public class RemoveLowerKeyCommand extends Command{
     public RemoveLowerKeyCommand() {
-        super("remove_lower_key", "remove from the collection all elements whose key is less than the given one");
+        super("remove_lower_key", "remove from the collection all elements whose key is less than the given one", 0);
     }
 
     @Override
     public Response execute(Request request) {
-        if (request.dragons().isEmpty() || request.dragons() == null) {
+        if (request.args() == null) {
             return new Response("null request");
         }
-        int yourKey = (int)request.dragons().get(0).getId();
+        int yourKey = Integer.parseInt(request.args().get(0));
 
         TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
         List<Integer> keysToRemove = new ArrayList<>(collection.headMap(yourKey, false).keySet());

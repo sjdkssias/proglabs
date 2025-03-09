@@ -3,8 +3,8 @@ package se.ifmo.client.commands;
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 
-public class Help extends Command {
-    public Help() {
+public class HelpCommand extends Command {
+    public HelpCommand() {
         super("help", "show description of all commands");
     }
 

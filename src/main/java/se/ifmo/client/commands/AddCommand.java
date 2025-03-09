@@ -4,8 +4,8 @@ import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 import se.ifmo.server.CollectionManager;
 
-public class Add extends Command{
-    public Add() {
+public class AddCommand extends Command{
+    public AddCommand() {
         super("add", "add dragon to collection", 1);
     }
 

@@ -60,9 +60,6 @@ public class CollectionManager {
         return new ArrayList<>(dragons.keySet());
     }
 
-    public TreeMap<Integer, Dragon> treeMap(){
-        return dragons;
-    }
 
     public boolean containsId(int id) {
         return dragons.containsKey(id);

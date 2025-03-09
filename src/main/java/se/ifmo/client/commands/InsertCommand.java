@@ -1,16 +1,15 @@
 package se.ifmo.client.commands;
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
-import se.ifmo.client.commands.util.HistoryManager;
 import se.ifmo.client.console.Console;
 import se.ifmo.server.CollectionManager;
 
 import java.io.IOException;
 
 
-public class Insert extends Command{
+public class InsertCommand extends Command{
 
-    public Insert() {
+    public InsertCommand() {
         super("insert", "add element with your key", 1);
     }
 

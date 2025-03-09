@@ -3,8 +3,8 @@ package se.ifmo.client.commands;
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 
-public class PrintUniqueHead extends Command {
-    public PrintUniqueHead() {
+public class PrintUniqueHeadCommand extends Command {
+    public PrintUniqueHeadCommand() {
         super("print_unique_head", "print unique dragon's head");
     }
 

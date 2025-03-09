@@ -19,15 +19,7 @@ dependencies {
     implementation("io.vertx:vertx-core:4.5.3")
 }
 
-tasks.jar {
-    manifest.attributes["Main-Class"] = "se.ifmo.Main"
-    manifest.attributes["Class-Path"] = configurations
-        .runtimeClasspath
-        .get()
-        .joinToString(separator = " ") { file ->
-            "libs/${file.name}"
-        }
-}
+
 
 tasks.test {
     useJUnitPlatform()

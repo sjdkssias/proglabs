@@ -4,8 +4,8 @@ import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 import se.ifmo.server.CollectionManager;
 
-public class Clear extends Command{
-    public Clear() {
+public class ClearCommand extends Command{
+    public ClearCommand() {
         super("clear", "clear your collection");
     }
 

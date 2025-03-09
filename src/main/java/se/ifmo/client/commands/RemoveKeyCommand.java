@@ -4,8 +4,8 @@ import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 import se.ifmo.server.CollectionManager;
 
-public class RemoveKey extends Command{
-    public RemoveKey() {
+public class RemoveKeyCommand extends Command{
+    public RemoveKeyCommand() {
         super("remove_key", "remove all elements who have the given key");
     }
 

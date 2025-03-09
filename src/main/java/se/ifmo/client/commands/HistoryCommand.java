@@ -4,14 +4,13 @@ import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
 import se.ifmo.client.commands.util.HistoryManager;
 
-public class History extends Command{
-    public History() {
+public class HistoryCommand extends Command{
+    public HistoryCommand() {
         super("history", "show history of commands");
     }
 
     @Override
     public Response execute(Request request) {
-        System.out.println("Commands history: " + String.join(", ", HistoryManager.getInstance().getHistory()));
         return new Response(String.join("\n", HistoryManager.getInstance().getHistory()));
     }
 }

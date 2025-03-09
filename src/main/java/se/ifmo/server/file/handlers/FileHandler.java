@@ -26,8 +26,7 @@ public class FileHandler implements IOHandler<String>, AutoCloseable {
 
     @Override
     public void write(String value) throws IOException {
-        writer.write(value + "\n");
-        writer.flush(); // Сброс буфера, чтобы сразу записать в файл
+        writer.append(value + "\n").flush();// Сброс буфера, чтобы сразу записать в файл
     }
 
     @Override

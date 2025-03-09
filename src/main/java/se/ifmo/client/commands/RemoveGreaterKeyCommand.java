@@ -5,6 +5,7 @@ import se.ifmo.client.chat.Response;
 import se.ifmo.server.CollectionManager;
 import se.ifmo.server.models.classes.Dragon;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -16,25 +17,26 @@ public class RemoveGreaterKeyCommand extends Command{
 
     @Override
     public Response execute(Request request) {
-        if (request.args().isEmpty()){
-            return new Response("Error");
+        if (request.dragons().isEmpty() || request.args() == null) {
+            return new Response("null request");
         }
+        int yourKey;
         try {
-            int key = Integer.parseInt(request.args().get(0));
-            TreeMap<Integer, Dragon> treeMap = CollectionManager.getInstance().treeMap();
-            List<Integer> keysToRemove = treeMap.tailMap(key, false)
-                    .keySet()
-                    .stream()
-                    .toList();
-        if (keysToRemove.isEmpty()) {
-            return new Response("No elements with key greater than " + key);
-        }
-        keysToRemove.forEach(treeMap::remove);
-
-        return new Response("Removed " + keysToRemove.size() + " elements with key greater than " + key);
+            yourKey = Integer.parseInt(String.valueOf(request.args())); // Преобразуем аргумент в число
         } catch (NumberFormatException e) {
-            return new Response("Error: Invalid key format. Please enter a number.");
+            return new Response("Invalid key format");
         }
 
+        TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
+        List<Integer> keysToRemove = new ArrayList<>(collection.tailMap(yourKey, false).keySet());
+        if (keysToRemove.isEmpty()) {
+            return new Response("No elements found with key lower than " + yourKey);
+        }
+
+        for (int key : keysToRemove) {
+            collection.remove(key);
+        }
+
+        return new Response("Removed " + keysToRemove.size() + " elements with key greater than " + yourKey);
     }
 }

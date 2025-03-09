@@ -12,11 +12,11 @@ public class ShowCommand extends Command{
     @Override
     public Response execute(Request request) {
         CollectionManager collectionManager = CollectionManager.getInstance();
-        if (collectionManager.treeMap().isEmpty()){
+        if (collectionManager.getInstance().getDragons().isEmpty()){
             return new Response("Ваша коллекция пуста");
         }
         StringBuilder result = new StringBuilder("Элементы коллекции:\n");
-        collectionManager.treeMap().forEach((id, dragon) ->
+        collectionManager.getDragons().forEach((id, dragon) ->
                 result.append("ID: ").append(id)
                         .append(", Дракон: ").append(dragon)
                         .append("\n")

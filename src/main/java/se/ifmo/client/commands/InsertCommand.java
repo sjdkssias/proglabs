@@ -32,7 +32,7 @@ public class InsertCommand extends Command{
         if (CollectionManager.getInstance().containsId(id)) {
             return new Response("Dragon with this ID already exists!");
         }
-        CollectionManager.getInstance().treeMap().put(id, request.dragons().get(0));
+        CollectionManager.getInstance().getDragons().put(id, request.dragons().get(0));
 
         return new Response("Dragon was saved to collection with ID: " + id);
     }

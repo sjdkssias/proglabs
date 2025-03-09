@@ -11,7 +11,7 @@ public class ClearCommand extends Command{
 
     @Override
     public Response execute(Request request) {
-        CollectionManager.getInstance().clear();
+        CollectionManager.getInstance().getDragons().clear();
         return new Response("your collection was cleared");
     }
 }

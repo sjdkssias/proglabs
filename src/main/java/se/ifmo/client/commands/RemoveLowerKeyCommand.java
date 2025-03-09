@@ -2,6 +2,12 @@ package se.ifmo.client.commands;
 
 import se.ifmo.client.chat.Request;
 import se.ifmo.client.chat.Response;
+import se.ifmo.server.CollectionManager;
+import se.ifmo.server.models.classes.Dragon;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
 
 public class RemoveLowerKeyCommand extends Command{
     public RemoveLowerKeyCommand() {
@@ -10,6 +16,26 @@ public class RemoveLowerKeyCommand extends Command{
 
     @Override
     public Response execute(Request request) {
-        return null;
+        if (request.dragons().isEmpty() || request.args() == null) {
+            return new Response("null request");
+        }
+        int yourKey;
+        try {
+            yourKey = Integer.parseInt(String.valueOf(request.args())); // Преобразуем аргумент в число
+        } catch (NumberFormatException e) {
+            return new Response("Invalid key format");
+        }
+
+        TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
+        List<Integer> keysToRemove = new ArrayList<>(collection.headMap(yourKey, false).keySet());
+        if (keysToRemove.isEmpty()) {
+            return new Response("No elements found with key lower than " + yourKey);
+        }
+        for (int key : keysToRemove) {
+            collection.remove(key);
+        }
+
+        return new Response("Removed " + keysToRemove.size() + " elements with key lower than " + yourKey);
     }
+
 }

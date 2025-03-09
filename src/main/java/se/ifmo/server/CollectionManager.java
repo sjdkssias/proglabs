@@ -1,13 +1,14 @@
 package se.ifmo.server;
 
 import java.util.*;
-
+import lombok.Getter;
 import se.ifmo.server.file.handlers.XmlHandler;
 import se.ifmo.server.models.classes.Dragon;
+@Getter
 public class CollectionManager {
     private static CollectionManager instance;
 
-    private final TreeMap<Integer, Dragon> dragons = new TreeMap();
+    private final TreeMap<Integer, Dragon> dragons = new TreeMap<>();
 
 
     private CollectionManager() {
@@ -35,26 +36,15 @@ public class CollectionManager {
             dragons.clear();
             dragons.putAll(xmlHandler.read());
             System.out.printf("loaded %d elements%n", dragons.size());
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+        } catch (NullPointerException e) {}
     }
 
     public void save(){
         try (XmlHandler xmlHandler = new XmlHandler()){
             xmlHandler.write(dragons);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+        } catch (Exception e){}
     }
 
-    public void clear(){
-        try (XmlHandler xmlHandler = new XmlHandler()){
-            dragons.clear();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
 
     public List<Integer> getIds(){
         return new ArrayList<>(dragons.keySet());

@@ -20,12 +20,7 @@ public class RemoveGreaterKeyCommand extends Command{
         if (request.dragons().isEmpty() || request.args() == null) {
             return new Response("null request");
         }
-        int yourKey;
-        try {
-            yourKey = Integer.parseInt(String.valueOf(request.args())); // Преобразуем аргумент в число
-        } catch (NumberFormatException e) {
-            return new Response("Invalid key format");
-        }
+        int yourKey = (int)request.dragons().get(0).getId();
 
         TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
         List<Integer> keysToRemove = new ArrayList<>(collection.tailMap(yourKey, false).keySet());

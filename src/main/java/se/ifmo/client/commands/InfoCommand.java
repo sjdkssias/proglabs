@@ -11,12 +11,12 @@ import java.util.TreeMap;
 
 public class InfoCommand extends Command{
     public InfoCommand() {
-        super("info", "information about collection", 1);
+        super("info", "information about collection");
     }
 
     @Override
     public Response execute(Request request) throws IOException {
         TreeMap<Integer, Dragon> collection = CollectionManager.getInstance().getDragons();
-        return new Response("collection type: " + collection.getClass() + "\n" + "collection size: " + collection.size());
+        return new Response("collection type: " + collection.getClass().getSimpleName() + "\n" + "collection size: " + collection.size());
     }
 }

@@ -18,7 +18,7 @@ public class ShowCommand extends Command{
         StringBuilder result = new StringBuilder("Элементы коллекции:\n");
         collectionManager.getDragons().forEach((id, dragon) ->
                 result.append("ID: ").append(id)
-                        .append(", Дракон: ").append(dragon)
+                        .append(", ").append(dragon)
                         .append("\n")
         );
 

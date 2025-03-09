@@ -42,5 +42,17 @@ public class Dragon implements Comparable<Dragon>, Validatable {
         if (coordinates == null || !coordinates.validate()) return false;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Dragon:" +
+                " name='" + name + '\'' +
+                ", coordinates=" + coordinates.toString() +
+                ", creationDate=" + creationDate +
+                ", speaking=" + speaking +
+                ", color=" + color +
+                ", character=" + character +
+                ", head=" + head.getToothcount();
+    }
 }
 

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 public class InfoCommand extends Command{
-    public InfoCommand(String name, String description, int elementNumber) {
+    public InfoCommand() {
         super("info", "information about collection", 1);
     }
 

@@ -18,7 +18,8 @@ public class AllCommands {
             new PrintUniqueHeadCommand(),
             new RemoveLowerKeyCommand(),
             new ShowCommand(),
-            new ExecuteScriptCommand()
+            new ExecuteScriptCommand(),
+            new InfoCommand()
     );
 
     public AllCommands() {

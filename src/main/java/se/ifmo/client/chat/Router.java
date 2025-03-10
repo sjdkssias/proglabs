@@ -22,7 +22,6 @@ public class Router {
                         request = new Request(commandName, arguments, List.of(InputHandler.get(console)), console);
                     } catch (InterruptedException e) {
                         request = new Request(commandName, arguments, new ArrayList<>(), console);
-                        System.err.println("Command has been interrupted.");
                     }
                 }
                 return Handler.handleCommand(command, request);

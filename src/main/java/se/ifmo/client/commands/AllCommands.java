@@ -7,7 +7,7 @@ public class AllCommands {
             new AddCommand(),
             new HelpCommand(),
             new ExitCommand(),
-            new FilterGreaterThanSpeakingCommand(),
+            new FilterGreaterThanHeadCommand(),
             new HistoryCommand(),
             new InsertCommand(),
             new SaveCommand(),

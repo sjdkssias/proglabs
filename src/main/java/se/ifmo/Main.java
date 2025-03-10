@@ -1,7 +1,5 @@
 package se.ifmo;
 
-
-import se.ifmo.client.chat.Handler;
 import se.ifmo.client.chat.Response;
 import se.ifmo.client.chat.Router;
 import se.ifmo.client.console.Console;

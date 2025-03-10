@@ -1,5 +1,8 @@
 package se.ifmo.server.models.classes;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import se.ifmo.server.models.enums.Color;
 import se.ifmo.server.models.enums.DragonCharacter;
@@ -12,6 +15,7 @@ import se.ifmo.server.models.interfaces.Validatable;
 @EqualsAndHashCode
 @JacksonXmlRootElement(localName = "dragon")
 public class Dragon implements Comparable<Dragon>, Validatable {
+    @JacksonXmlProperty(isAttribute = true)
     @JsonIgnore
     private long id;
     @NonNull
@@ -19,8 +23,8 @@ public class Dragon implements Comparable<Dragon>, Validatable {
     @NonNull
     private Coordinates coordinates;
     @NonNull
-    @JsonIgnore
-    private java.time.LocalDate creationDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private java.time.LocalDate creationDate = java.time.LocalDate.now();
     @NonNull
     private Boolean speaking;
     @NonNull

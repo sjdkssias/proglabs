@@ -1,21 +1,19 @@
 package se.ifmo.server.models.classes;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import se.ifmo.server.models.enums.Color;
 import se.ifmo.server.models.enums.DragonCharacter;
-
-import lombok.*;
 import se.ifmo.server.models.interfaces.Validatable;
 
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode
-@JacksonXmlRootElement(localName = "dragon")
 public class Dragon implements Comparable<Dragon>, Validatable {
-    @JacksonXmlProperty(isAttribute = true)
     @JsonIgnore
     private long id;
     @NonNull
@@ -29,8 +27,8 @@ public class Dragon implements Comparable<Dragon>, Validatable {
     private Boolean speaking;
     @NonNull
     private Color color;
-    @NonNull
     private DragonCharacter character; //Поле может быть null
+    @NonNull
     private DragonHead head;
 
     @Override

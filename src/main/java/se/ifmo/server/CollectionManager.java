@@ -1,14 +1,17 @@
 package se.ifmo.server;
 
-import java.util.*;
 import lombok.Getter;
 import se.ifmo.server.file.handlers.XmlHandler;
 import se.ifmo.server.models.classes.Dragon;
+
+import java.io.IOException;
+import java.util.*;
+
 @Getter
 public class CollectionManager {
     private static CollectionManager instance;
 
-    private final TreeMap<Integer, Dragon> dragons = new TreeMap<>();
+    private final TreeMap<Long, Dragon> dragons = new TreeMap<>();
 
 
     private CollectionManager() {
@@ -22,7 +25,7 @@ public class CollectionManager {
         return instance;
     }
 
-    public int generateId(){
+    public int generateId() {
         Random random = new Random();
         int newId;
         do {
@@ -31,36 +34,39 @@ public class CollectionManager {
         return newId;
     }
 
-    public void load(){
+    public void load() {
         try (XmlHandler xmlHandler = new XmlHandler()) {
             dragons.clear();
             dragons.putAll(xmlHandler.read());
             System.out.printf("loaded %d elements%n", dragons.size());
-        } catch (NullPointerException e) {}
+        } catch (NullPointerException e) {
+        }
     }
 
-    public void save(){
-        try (XmlHandler xmlHandler = new XmlHandler()){
+    public void save() {
+        try (XmlHandler xmlHandler = new XmlHandler()) {
             xmlHandler.write(dragons);
-        } catch (Exception e){}
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
 
-    public List<Integer> getIds(){
+    public List<Long> getIds() {
         return new ArrayList<>(dragons.keySet());
     }
 
 
-    public boolean containsId(int id) {
+    public boolean containsId(long id) {
         return dragons.containsKey(id);
     }
 
-    public void removeById(int id){
+    public void removeById(long id) {
         dragons.remove(id);
     }
 
-    public void add(Dragon dragon){
-        int k = generateId();
+    public void add(Dragon dragon) {
+        long k = generateId();
         dragons.put(k, dragon);
         dragon.setId(k);
     }
@@ -69,7 +75,7 @@ public class CollectionManager {
         if (dragons.isEmpty()) {
             return Collections.emptyList();
         }
-        int maxKey = dragons.lastKey();
+        long maxKey = dragons.lastKey();
         return List.of(dragons.get(maxKey));
     }
 
